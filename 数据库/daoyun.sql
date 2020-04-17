@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2020/3/25 16:56:33                           */
+/* Created on:     2020/4/17 11:57:02                           */
 /*==============================================================*/
 
 
@@ -21,6 +21,8 @@ drop table if exists Permision;
 drop table if exists Role;
 
 drop table if exists RoleDescription;
+
+drop table if exists TeacherSign;
 
 drop table if exists User;
 
@@ -142,6 +144,18 @@ create table RoleDescription
 );
 
 /*==============================================================*/
+/* Table: TeacherSign                                           */
+/*==============================================================*/
+create table TeacherSign
+(
+   TeacherSignId        int not null auto_increment,
+   TeacherId            int,
+   CourseId             int,
+   Date                 datetime,
+   primary key (TeacherSignId)
+);
+
+/*==============================================================*/
 /* Table: User                                                  */
 /*==============================================================*/
 create table User
@@ -197,6 +211,12 @@ alter table RoleDescription add constraint FK_Reference_10 foreign key (RightId)
 
 alter table RoleDescription add constraint FK_Reference_9 foreign key (RoleId)
       references Role (RoleId) on delete restrict on update restrict;
+
+alter table TeacherSign add constraint FK_Reference_15 foreign key (TeacherId)
+      references User (UserId) on delete restrict on update restrict;
+
+alter table TeacherSign add constraint FK_Reference_16 foreign key (CourseId)
+      references Course (CourseId) on delete restrict on update restrict;
 
 alter table User_Role add constraint FK_Reference_12 foreign key (RoleId)
       references Role (RoleId) on delete restrict on update restrict;
