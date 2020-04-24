@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-04-23 15:19:25
+Date: 2020-04-24 16:50:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -147,8 +147,7 @@ INSERT INTO `paper` VALUES ('2', '深度学习', '3', 'dldldl');
 INSERT INTO `paper` VALUES ('3', '大数据', '4', 'bdbdbd');
 INSERT INTO `paper` VALUES ('12', 'attentionnlp', '1', 'a');
 INSERT INTO `paper` VALUES ('14', 'bbbb', '1', 'b');
-INSERT INTO `paper` VALUES ('15', '分页测试1', '5', 'aa');
-INSERT INTO `paper` VALUES ('16', '分页测试2', '6', 'bb');
+INSERT INTO `paper` VALUES ('15', '分页测试1', '5', '嗷嗷嗷');
 INSERT INTO `paper` VALUES ('17', 'pagetest3', '5', 'cc');
 INSERT INTO `paper` VALUES ('18', 'pagetest5', '7', 'cc');
 INSERT INTO `paper` VALUES ('19', 'pagetest6', '8', 'nn');
@@ -157,6 +156,28 @@ INSERT INTO `paper` VALUES ('21', 'cc', '3', 'cc');
 INSERT INTO `paper` VALUES ('23', '你是猪头', '3', '猪头猪头');
 INSERT INTO `paper` VALUES ('24', '测试新增postman', '5', '新增新增改');
 INSERT INTO `paper` VALUES ('26', '新增', '5', '啊');
+
+-- ----------------------------
+-- Table structure for paperdetailtest
+-- ----------------------------
+DROP TABLE IF EXISTS `paperdetailtest`;
+CREATE TABLE `paperdetailtest` (
+  `Id` bigint NOT NULL AUTO_INCREMENT,
+  `PaperId` bigint DEFAULT NULL,
+  `ItemKey` int DEFAULT NULL,
+  `ItemValue` varchar(32) DEFAULT NULL,
+  `IsDefault` int DEFAULT NULL,
+  `Code` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `FK_Reference_7` (`PaperId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Records of paperdetailtest
+-- ----------------------------
+INSERT INTO `paperdetailtest` VALUES ('1', '2', '3', 'a', '2', 'a');
+INSERT INTO `paperdetailtest` VALUES ('2', '2', '22', '西安建筑科技大学', '1', 'aaa');
+INSERT INTO `paperdetailtest` VALUES ('3', '2', '33', '福建师范大学', '1', 'bbb');
 
 -- ----------------------------
 -- Table structure for permision
