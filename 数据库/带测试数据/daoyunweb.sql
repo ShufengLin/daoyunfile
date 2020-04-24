@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : qa
+Source Server         : test
 Source Server Version : 80019
 Source Host           : localhost:3306
 Source Database       : daoyunweb
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-04-24 16:50:23
+Date: 2020-04-25 01:00:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -138,24 +138,17 @@ CREATE TABLE `paper` (
   `number` int NOT NULL COMMENT 'paper数量',
   `detail` varchar(200) NOT NULL COMMENT 'paper描述',
   PRIMARY KEY (`paper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='paper表';
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COMMENT='paper表';
 
 -- ----------------------------
 -- Records of paper
 -- ----------------------------
-INSERT INTO `paper` VALUES ('2', '深度学习', '3', 'dldldl');
-INSERT INTO `paper` VALUES ('3', '大数据', '4', 'bdbdbd');
-INSERT INTO `paper` VALUES ('12', 'attentionnlp', '1', 'a');
-INSERT INTO `paper` VALUES ('14', 'bbbb', '1', 'b');
-INSERT INTO `paper` VALUES ('15', '分页测试1', '5', '嗷嗷嗷');
-INSERT INTO `paper` VALUES ('17', 'pagetest3', '5', 'cc');
-INSERT INTO `paper` VALUES ('18', 'pagetest5', '7', 'cc');
-INSERT INTO `paper` VALUES ('19', 'pagetest6', '8', 'nn');
-INSERT INTO `paper` VALUES ('20', 'dd', '2', 'dd');
-INSERT INTO `paper` VALUES ('21', 'cc', '3', 'cc');
-INSERT INTO `paper` VALUES ('23', '你是猪头', '3', '猪头猪头');
-INSERT INTO `paper` VALUES ('24', '测试新增postman', '5', '新增新增改');
-INSERT INTO `paper` VALUES ('26', '新增', '5', '啊');
+INSERT INTO `paper` VALUES ('38', '学校', '1', '学校字典');
+INSERT INTO `paper` VALUES ('39', '国籍', '2', '国籍字典');
+INSERT INTO `paper` VALUES ('40', '证件', '3', '证件字典');
+INSERT INTO `paper` VALUES ('41', '学院', '4', '学院字典');
+INSERT INTO `paper` VALUES ('42', '专业', '5', '专业字典');
+INSERT INTO `paper` VALUES ('43', '课程', '6', '课程字典');
 
 -- ----------------------------
 -- Table structure for paperdetailtest
@@ -170,14 +163,30 @@ CREATE TABLE `paperdetailtest` (
   `Code` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_Reference_7` (`PaperId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of paperdetailtest
 -- ----------------------------
-INSERT INTO `paperdetailtest` VALUES ('1', '2', '3', 'a', '2', 'a');
-INSERT INTO `paperdetailtest` VALUES ('2', '2', '22', '西安建筑科技大学', '1', 'aaa');
-INSERT INTO `paperdetailtest` VALUES ('3', '2', '33', '福建师范大学', '1', 'bbb');
+INSERT INTO `paperdetailtest` VALUES ('19', '43', '1', '智能技术', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('20', '43', '2', '人工智能', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('21', '43', '3', '工程实践', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('22', '42', '1', '计算机技术', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('23', '42', '2', '软件工程', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('24', '42', '3', '网络安全', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('25', '41', '1', '数学与计算机科学学院', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('26', '41', '2', '土木工程学院', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('27', '40', '1', '身份证', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('28', '40', '2', '行驶证', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('29', '40', '3', '驾驶证', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('30', '40', '4', '军官证', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('31', '39', '1', '中国', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('32', '39', '2', '美国', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('33', '39', '3', '俄罗斯', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('34', '39', '4', '日本', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('35', '38', '1', '福州大学', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('36', '38', '2', '西安建筑科技大学', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('37', '38', '3', '福建师范大学', '0', '');
 
 -- ----------------------------
 -- Table structure for permision
