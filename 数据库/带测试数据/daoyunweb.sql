@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : test
+Source Server         : qa
 Source Server Version : 80019
 Source Host           : localhost:3306
 Source Database       : daoyunweb
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-04-25 01:00:53
+Date: 2020-04-30 15:26:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -280,11 +280,12 @@ CREATE TABLE `user` (
   `Academy` varchar(255) DEFAULT NULL,
   `Major` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
+INSERT INTO `user` VALUES ('1', 'admin', null, null, '123123', null, null, null);
 
 -- ----------------------------
 -- Table structure for user_role
