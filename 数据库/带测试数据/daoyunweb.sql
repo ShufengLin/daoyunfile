@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80019
 File Encoding         : 65001
 
-Date: 2020-04-30 15:26:06
+Date: 2020-05-13 10:50:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,15 +24,24 @@ CREATE TABLE `course` (
   `CourseName` varchar(255) DEFAULT NULL,
   `CourseHour` int DEFAULT NULL,
   `TeachId` int NOT NULL,
+  `StartTime` datetime DEFAULT NULL,
   `CoursePlace` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`CourseId`),
   KEY `FK_Reference_4` (`TeachId`),
   CONSTRAINT `FK_Reference_4` FOREIGN KEY (`TeachId`) REFERENCES `user` (`UserId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of course
 -- ----------------------------
+INSERT INTO `course` VALUES ('1', '软件开发', '26', '5', '2019-08-06 00:00:00', '东1-203');
+INSERT INTO `course` VALUES ('2', '云计算', '54', '3', '2019-02-06 00:00:00', '东1-103');
+INSERT INTO `course` VALUES ('3', '大数据处理', '54', '4', '2019-02-06 00:00:00', '文1-303');
+INSERT INTO `course` VALUES ('4', '智能图像分析', '54', '5', '2019-02-06 00:00:00', '文2-303');
+INSERT INTO `course` VALUES ('5', '工程实践', '54', '6', '2019-02-06 00:00:00', '文3-303');
+INSERT INTO `course` VALUES ('6', '工程英语', '54', '2', '2019-02-06 00:00:00', '文3-304');
+INSERT INTO `course` VALUES ('7', '软件', '54', '5', '2019-08-06 00:00:00', '东1-203');
+INSERT INTO `course` VALUES ('8', '智能技术', '54', '4', '2019-02-06 00:00:00', '东3-303');
 
 -- ----------------------------
 -- Table structure for course_sign
@@ -161,32 +170,36 @@ CREATE TABLE `paperdetailtest` (
   `ItemValue` varchar(32) DEFAULT NULL,
   `IsDefault` int DEFAULT NULL,
   `Code` varchar(255) DEFAULT NULL,
+  `ParentId` bigint DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_Reference_7` (`PaperId`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of paperdetailtest
 -- ----------------------------
-INSERT INTO `paperdetailtest` VALUES ('19', '43', '1', '智能技术', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('20', '43', '2', '人工智能', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('21', '43', '3', '工程实践', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('22', '42', '1', '计算机技术', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('23', '42', '2', '软件工程', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('24', '42', '3', '网络安全', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('25', '41', '1', '数学与计算机科学学院', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('26', '41', '2', '土木工程学院', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('27', '40', '1', '身份证', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('28', '40', '2', '行驶证', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('29', '40', '3', '驾驶证', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('30', '40', '4', '军官证', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('31', '39', '1', '中国', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('32', '39', '2', '美国', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('33', '39', '3', '俄罗斯', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('34', '39', '4', '日本', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('35', '38', '1', '福州大学', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('36', '38', '2', '西安建筑科技大学', '0', '');
-INSERT INTO `paperdetailtest` VALUES ('37', '38', '3', '福建师范大学', '0', '');
+INSERT INTO `paperdetailtest` VALUES ('19', '43', '1', '智能技术', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('20', '43', '2', '人工智能', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('21', '43', '3', '工程实践', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('22', '42', '1', '计算机技术', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('23', '42', '2', '软件工程', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('24', '42', '3', '网络安全', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('25', '41', '1', '数学与计算机科学学院', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('26', '41', '2', '土木工程学院', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('27', '40', '1', '身份证', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('28', '40', '2', '行驶证', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('29', '40', '3', '驾驶证', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('30', '40', '4', '军官证', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('31', '39', '1', '中国', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('32', '39', '2', '美国', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('33', '39', '3', '俄罗斯', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('34', '39', '4', '日本', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('35', '38', '1', '福州大学', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('36', '38', '2', '西安建筑科技大学', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('37', '38', '3', '福建师范大学', '0', '', '0');
+INSERT INTO `paperdetailtest` VALUES ('38', '38', '1', '数学与计算机科学学院', '0', null, '35');
+INSERT INTO `paperdetailtest` VALUES ('40', '38', '2', '信息控制工程学院', '0', null, '36');
+INSERT INTO `paperdetailtest` VALUES ('41', '38', '1', '计算机技术', '0', null, '38');
 
 -- ----------------------------
 -- Table structure for permision
@@ -221,11 +234,14 @@ CREATE TABLE `role` (
   `Creator` varchar(20) DEFAULT NULL,
   `CreationDate` datetime DEFAULT NULL,
   PRIMARY KEY (`RoleId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
+INSERT INTO `role` VALUES ('1', '管理员', null, null, null, null);
+INSERT INTO `role` VALUES ('2', '老师', null, null, null, null);
+INSERT INTO `role` VALUES ('3', '学生', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for roledescription
@@ -280,12 +296,24 @@ CREATE TABLE `user` (
   `Academy` varchar(255) DEFAULT NULL,
   `Major` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', null, null, '123123', null, null, null);
+INSERT INTO `user` VALUES ('1', 'lin', '', '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('2', '陈老师', null, '133344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('3', '肖老师', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('4', '林老师', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('5', '蔡老师', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('6', '何老师', null, '123344444', '123', '福州大学', '数学与计算机学院', '软件工程');
+INSERT INTO `user` VALUES ('7', '池老师', null, '123344444', '123', '福州大学', '数学与计算机学院', '软件工程');
+INSERT INTO `user` VALUES ('8', '陈同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('9', '林同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('10', '蔡同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '软件工程');
+INSERT INTO `user` VALUES ('11', '肖同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '软件工程');
+INSERT INTO `user` VALUES ('12', '郑同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
+INSERT INTO `user` VALUES ('13', '火同学', null, '123344444', '123', '福州大学', '数学与计算机学院', '计算机技术');
 
 -- ----------------------------
 -- Table structure for user_role
@@ -300,8 +328,21 @@ CREATE TABLE `user_role` (
   KEY `FK_Reference_13` (`UserId`),
   CONSTRAINT `FK_Reference_12` FOREIGN KEY (`RoleId`) REFERENCES `role` (`RoleId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_13` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Records of user_role
 -- ----------------------------
+INSERT INTO `user_role` VALUES ('1', '1', '1');
+INSERT INTO `user_role` VALUES ('2', '2', '2');
+INSERT INTO `user_role` VALUES ('3', '3', '2');
+INSERT INTO `user_role` VALUES ('4', '4', '2');
+INSERT INTO `user_role` VALUES ('5', '5', '2');
+INSERT INTO `user_role` VALUES ('6', '6', '2');
+INSERT INTO `user_role` VALUES ('7', '7', '2');
+INSERT INTO `user_role` VALUES ('8', '8', '3');
+INSERT INTO `user_role` VALUES ('9', '9', '3');
+INSERT INTO `user_role` VALUES ('10', '10', '3');
+INSERT INTO `user_role` VALUES ('11', '11', '3');
+INSERT INTO `user_role` VALUES ('12', '12', '3');
+INSERT INTO `user_role` VALUES ('13', '13', '3');
